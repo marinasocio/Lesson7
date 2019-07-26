@@ -57,47 +57,44 @@ const string = (function() {
 
 //Exercise 4
 
-const calc = (function() {
-	function setNum(value) {
+const calc = {
+	setNum: function(value) {
 		res = value;
-	}
+		return this;
+	},
 
-	function setSum(sum) {
+	setSum: function(sum) {
 		res += sum;
-	}
+		return this;
+	},
 
-	function setSubtract(minus) {
+	setSubtract: function(minus) {
 		res -= minus;
-	}
+		return this;
+	},
 
-	function setMultiply(multi) {
+	setMultiply: function(multi) {
 		res *= multi;
-	}
+		return this;
+	},
 
-	function setDivision(divis) {
+	setDivision: function(divis) {
 		res /= divis;
-	}
+		res = res.toFixed(2);
+		return this;
+	},
 
-	function setInvolute(inv) {
+	setInvolute: function(inv) {
 		res = Math.pow(res, inv);
-	}
+		return this;
+	},
 
-	function getResult() {
+	getResult: function() {
 		return res;
-	}
+	},
 
-	function setNull() {
-		return (res = 0);
+	setNull: function() {
+		res = 0;
+		return this;
 	}
-
-	return {
-		setNum,
-		setSum,
-		setSubtract,
-		setMultiply,
-		setDivision,
-		setInvolute,
-		getResult,
-		setNull
-	};
-})();
+};
